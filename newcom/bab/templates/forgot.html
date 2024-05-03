@@ -1,0 +1,26 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forgot Password</title>
+    <link rel="stylesheet" href="{% static 'css/forgot.css' %}">
+</head>
+<body>
+    <div class="forgot" >
+   <form class="fo" action="{% url 'forgot' %}" method="POST" >
+        {% csrf_token %}
+        <input style="width: 300px;" placeholder="EmailAddress" type="text" name="Email"  id="Email" required>
+       
+    <button class="button"  type="submit">submit</button>
+    <a href="login">Back to Login</a>
+   </form>
+   {% if error %}
+   <p>{{ error }}{{sent}}</p>
+   {% endif %}
+    </div>
+    
+</body>
+</html>
